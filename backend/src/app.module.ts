@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TelegramController } from './auth/telegram-login.controller';
-import { TelegramService } from './auth/telegram-login.service';
-import { TelegramGateway } from './auth/telegram.gateway';
+import { TelegramAuthModule } from './auth/telegram-auth.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, TelegramController],
-  providers: [AppService, TelegramService, TelegramGateway],
+  imports: [TelegramAuthModule],
+  controllers: [AppController,],
+  providers: [AppService, ],
 })
 export class AppModule {}
